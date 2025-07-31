@@ -1,0 +1,17 @@
+{
+    "name": "AX.Temp",
+    "rootNamespace": "",
+    "references": [
+        "GUID:656bbf257e308244d9357be03ba82eb5",
+        "GUID:d60799ab2a985554ea1a39cd38695018"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
