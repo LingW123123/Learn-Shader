@@ -98,3 +98,12 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# business
+[Aa]sset/Scripts/LitJson/
+[Aa]sset/Scripts/LitJson.meta
+[Aa]sset/Scripts/MathDefine/
+[Aa]sset/Scripts/MathDefine.meta
+[Aa]sset/Scripts/Busniess/
+[Aa]sset/Scripts/Busniess.meta
+
