@@ -100,10 +100,10 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 # business
-[Aa]sset/Scripts/LitJson/
-[Aa]sset/Scripts/LitJson.meta
-[Aa]sset/Scripts/MathDefine/
-[Aa]sset/Scripts/MathDefine.meta
-[Aa]sset/Scripts/Busniess/
-[Aa]sset/Scripts/Busniess.meta
+/Assets/Scripts/LitJson/
+/Assets/Scripts/LitJson.meta
+/Assets/Scripts/MathDefine/
+/Assets/Scripts/MathDefine.meta
+/Assets/Scripts/Busniess/
+/Assets/Scripts/Busniess.meta
 
