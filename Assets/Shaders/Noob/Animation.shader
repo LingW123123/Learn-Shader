@@ -72,7 +72,7 @@ Shader "Noob/Animation"
                 
                 float distToCenter = length(i.uv - 0.5); // 纹理正中心 (0.5, 0.5)
 
-                float colorGradientSample = distToCenter * _ColorGradientTiling + _Time.y * _ColorGradientSpeed; // _Time.x 单位 s 1x，y 2x, z 3x w t/20 缓慢动画
+                float colorGradientSample = distToCenter * _ColorGradientTiling + _Time.y * _ColorGradientSpeed; // _Time.x t/20 缓慢动画，y 单位 s 1x, z 2x w 3x
                 half3 colorGradient = tex2D(_ColorGradient, float2(colorGradientSample, 0.5));
                 col *= colorGradient;
 
