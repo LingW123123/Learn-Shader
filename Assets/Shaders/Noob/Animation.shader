@@ -12,6 +12,7 @@ Shader "Noob/Animation"
         _AlphaGradientSpeed ("Alpha Gradient Speed", Float) = 1.0
         _GridSize ("Grid Size", Range(0.0, 1.0)) = 0.1
         _SpotSize ("Spot Size", Range(0.0, 0.5)) = 0.3
+        _RotationSpeed ("Rotation Speed", Float) = 1.0
     }
 
     SubShader
@@ -40,6 +41,8 @@ Shader "Noob/Animation"
 			float _AlphaGradientTiling;
 			float _AlphaGradientSpeed;
 
+            float _RotationSpeed;
+
 			half _GridSize;
 			half _SpotSize;
 
@@ -65,6 +68,19 @@ Shader "Noob/Animation"
 
             half4 frag (v2f i) : SV_Target
             {
+                float rotationAngle = _Time.y * _RotationSpeed;
+
+                float2 uvOffset = i.uv - 0.5;
+                float theta = rotationAngle * UNITY_PI / 180.0;
+                float s = sin(theta);
+                float c = cos(theta);
+                // 计算旋转后的 offset（顺时针）
+                float2 uvOffRot = float2(
+                    uvOffset.x * c + uvOffset.y * s,
+                    -uvOffset.x * s + uvOffset.y * c
+                );
+                float2 uvRotated = uvOffRot + 0.5;
+
                 // sample the texture
                 fixed4 albedo = tex2D(_MainTex, i.uv) * _Color;
                 fixed3 col = albedo.rgb;
@@ -80,7 +96,7 @@ Shader "Noob/Animation"
                 half alphagradient = tex2D(_AlphaGradient, float2(alphaGradientSample, 0.5));
                 alpha *= alphagradient;
 
-                half2 grid = fmod(i.uv, _GridSize) / _GridSize; // /gridSize 结果归一化
+                half2 grid = fmod(uvRotated, _GridSize) / _GridSize; // /gridSize 结果归一化
                 half distToGrid = length(grid - 0.5);
                 alpha *= step(distToGrid, _SpotSize);
 
